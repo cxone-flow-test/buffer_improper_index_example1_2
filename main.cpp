@@ -33,12 +33,6 @@ int main(int argc, char *argv[]) {
     a[x] = x;
 
   a[0] = 2000;
-  // The query misses this as a FN.  MAX is one
-  // element beyond the end of the array since indexing starts at 0.
-  // The next two are not emitted (they are valid accesses)
-  // Not sure if this is due to AbsInt performing the calculation
-  // or it is an edge case in the query missing them since
-  // they are similar to the previous pattern.
   a[MAX - 1] = 700;
   a[(MAX + 1) - 3] = 800;
 
